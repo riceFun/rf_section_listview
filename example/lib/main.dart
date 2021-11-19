@@ -32,6 +32,8 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  ScrollController? controller;
+
   int _counter = 0;
 
   void _incrementCounter() {
@@ -76,7 +78,6 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget _sectionHeaderBuilder(BuildContext context, int section) {
     final personGroup = personGroups[section];
     return Text('${personGroup.groupName} header');
-
   }
 
   Widget _sectionFooterBuilder(BuildContext context, int section) {
@@ -98,6 +99,7 @@ class _MyHomePageState extends State<MyHomePage> {
         cellForRowAtIndexPathBuilder: _cellForRowAtIndexPathBuilder,
         sectionHeaderBuilder: _sectionHeaderBuilder,
         sectionFooterBuilder: _sectionFooterBuilder,
+        controller: controller
       ),
 
       floatingActionButton: FloatingActionButton(

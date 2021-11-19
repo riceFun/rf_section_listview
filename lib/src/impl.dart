@@ -19,6 +19,7 @@ class SectionListView extends StatefulWidget {
   CellForRowAtIndexPathBuilder cellForRowAtIndexPathBuilder;
   SectionHeaderBuilder? sectionHeaderBuilder;
   SectionFooterBuilder? sectionFooterBuilder;
+  ScrollController? controller;
 
   SectionListView({
     Key? key,
@@ -27,6 +28,7 @@ class SectionListView extends StatefulWidget {
     required this.cellForRowAtIndexPathBuilder,
     this.sectionHeaderBuilder,
     this.sectionFooterBuilder,
+    this.controller,
   });
 
   @override
@@ -115,6 +117,7 @@ class _SectionListViewState extends State<SectionListView> {
     return ListView.builder(
         itemBuilder: _itemBuilder,
         itemCount: _itemCount(),
+        controller: widget.controller,
     );
   }
 }
